@@ -18,7 +18,7 @@ function LogInpage() {
             const account = response.data
             if(account.status === "ok") {
               alert("Logged In")
-              navigate('/signup')
+              navigate('/home')
               
             } else {
               alert("Try again")
