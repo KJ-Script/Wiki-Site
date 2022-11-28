@@ -27,6 +27,7 @@ function Feed() {
             <button
               className="bg-blue-400 px-[1%] py-[0.6%] rounded-lg text-white text-semibold "
               onClick={() => {
+                setType("character")
                 setCreate(false);
                 hideButton()
               }}
@@ -65,8 +66,9 @@ function Feed() {
           </div>
           {type === "arc" ? (
             <div>
+             <input type="text" placeholder={"title/name"} className="my-4" />
+            <div className="">
               {/* For story */}
-              <input type="text" placeholder={"title/name"} className="" />
               <textarea
                 type="textarea"
                 placeholder={"Story"}
@@ -77,6 +79,7 @@ function Feed() {
               <button className="border shadow-sm px-[3%] py-[1%] mx-[1%] rounded-lg  bg-blue-400 text-white font-sans">
                 Post
               </button>
+            </div>
             </div>
           ) : (
             <div></div>
