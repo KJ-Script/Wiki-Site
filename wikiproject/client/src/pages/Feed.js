@@ -6,9 +6,6 @@ function Feed() {
     const [type, setType] = useState("character")
     const [create, setCreate] = useState(false)
 
-  const createPost = () => {
-    return <PostCreator />;
-  };
 
   const setValue = value => {
     setType(value)
@@ -23,7 +20,6 @@ function Feed() {
         <div className="flex justify-between"><p>Create a {type}</p> <button className="bg-blue-400 px-[1%] py-[0.6%] rounded-lg text-white text-semibold " onClick={()=> {setCreate(false)}}>cancel</button></div>
         {/* General Options */}
         <div className="my-2">
-          <input type="text" placeholder={"title/name"} className="mx-3" />
           <select name="types" id="types">
             <option value="character" onClick={ e => {setType(e.target.value)}} >Character</option>
             <option value="world" onClick={ e => {setType(e.target.value)}}>World</option>
@@ -34,6 +30,7 @@ function Feed() {
             type === 'arc' ? 
         <div>
           {/* For story */}
+          <input type="text" placeholder={"title/name"} className="mx-3" />
           <textarea
             type="textarea"
             placeholder={"Story"}
