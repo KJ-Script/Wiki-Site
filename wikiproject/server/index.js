@@ -9,10 +9,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+//creating a dtatbase connection
 mongoose.connect(
   "mongodb+srv://keti:test123@wiki.ghfxak6.mongodb.net/wikidatabase?retryWrites=true&w=majority"
 );
 
+// User display
 app.get("/users", (req, res) => {
   UserModel.find({}, (err, result) => {
     if (err) {
@@ -24,6 +26,7 @@ app.get("/users", (req, res) => {
   });
 });
 
+//User Registration
 app.post("/createUser", async (req, res) => {
   const user = req.body;
   const newUser = new UserModel(user);
@@ -31,6 +34,8 @@ app.post("/createUser", async (req, res) => {
   res.json(user);
 });
 
+
+//User Authentication
 app.post("/validate", async (req, res) => {
   const user = await UserModel.findOne({
     username: req.body.username,
@@ -48,6 +53,8 @@ app.post("/validate", async (req, res) => {
   }
 });
 
+
+//Running the server
 app.listen(8080, (req, res) => {
   console.log("server is working");
 });

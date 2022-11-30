@@ -1,12 +1,12 @@
-import react from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
-import Feed from "./pages/Feed";
 import LandingPage from "./pages/LandingPage";
 import LogInpage from "./pages/LogInpage";
 import Register from "./pages/Register";
 import SignInPage from "./pages/SignInPage";
+import PostGenerator from "./pages/PostGenerator";
+import Feed from "./pages/Feed";
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
           <Route exact path="/signin" element={<LogInpage />}></Route>
           <Route exact path="/home" element={<Feed />}></Route>
           <Route exact path="/test" element={<SignInPage />}></Route>
+          <Route exact path="/create" element={<PostGenerator />}></Route>
         </Routes>
       </Router>
     </div>

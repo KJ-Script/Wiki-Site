@@ -1,150 +1,28 @@
-import React, { useEffect, useRef, useState } from "react";
-import PostCreator from "../components/PostCreator";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Feed() {
-  const [type, setType] = useState("character");
-  const [create, setCreate] = useState(false);
+  const navigate = useNavigate();
 
-  const createRef = useRef(null);
-
-  const hideButton = () => {
-    createRef.current.classList.toggle("invisible");
-    createRef.current.classList.toggle('visible')
-
-  };
-
-  const setValue = (value) => {
-    setType(value);
+  const routeToGenerator = () => {
+    navigate("/create");
   };
   return (
-    <>
-      <h1 className="mx-[50%] text-[30px] font-semi-bold">Feed</h1>
-      {create ? (
-        <div className="border shadow-sm px-[3%] py-[1%] rounded-lgdsax mx-[10%] bg-white text-black font-sans flex-col border-solid">
-          {/* Title */}
-          <div className="flex justify-between">
-            <p>Create a {type}</p>{" "}
-            <button
-              className="bg-blue-400 px-[1%] py-[0.6%] rounded-lg text-white text-semibold "
-              onClick={() => {
-                setType("character")
-                setCreate(false);
-                hideButton()
-              }}
-            >
-              cancel
-            </button>
-          </div>
-          {/* General Options */}
-          <div className="my-2">
-            <select name="types" id="types">
-              <option
-                value="character"
-                onClick={(e) => {
-                  setType(e.target.value);
-                }}
-              >
-                Character
-              </option>
-              <option
-                value="world"
-                onClick={(e) => {
-                  setType(e.target.value);
-                }}
-              >
-                World
-              </option>
-              <option
-                value="arc"
-                onClick={(e) => {
-                  setType(e.target.value);
-                }}
-              >
-                Arc/Story
-              </option>
-            </select>
-          </div>
-          {type === "arc" ? (
-            <div>
-             <input type="text" placeholder={"title/name"} className="my-4" />
-            <div className="">
-              {/* For story */}
-              <textarea
-                type="textarea"
-                placeholder={"Story"}
-                className="p-[1%]"
-                rows="15"
-                cols="90"
-              />
-              <button className="border shadow-sm px-[3%] py-[1%] mx-[1%] rounded-lg  bg-blue-400 text-white font-sans">
-                Post
-              </button>
-            </div>
-            </div>
-          ) : (
-            <div></div>
-          )}
-
-          {type === "character" ? (
-            <div>
-              {/* For Characer */}
-              <input type="text" placeholder={"Name"} className="mx-1" />
-              <input type="text" placeholder={"Age"} className="mx-1" />
-              <textarea
-                type="text"
-                placeholder={"Abilities"}
-                className="mx-1"
-              />
-              <textarea type="text" placeholder={"Aliases"} className="mx-1" />
-              <textarea
-                type="text"
-                placeholder={"Associations"}
-                className="mx-1"
-              />
-
-              <button className="border shadow-sm px-[2%] py-[0.5%] mx-[1%] rounded-lg  bg-blue-400 text-white font-sans">
-                Post
-              </button>
-            </div>
-          ) : (
-            <div></div>
-          )}
-
-          {type === "world" ? (
-            <div>
-              {/* For World */}
-              <input type="text" placeholder={"Name"} className="mx-1" />
-              <input type="text" placeholder={"Age"} className="mx-1" />
-              <input type="text" placeholder={"Environment"} className="mx-1" />
-              <textarea type="text" placeholder={"Aliases"} className="mx-1" />
-              <textarea
-                type="text"
-                placeholder={"Associations"}
-                className="mx-1"
-              />
-              <button className="border shadow-sm px-[2%] py-[%] mx-[1%] rounded-lg  bg-blue-400 text-white font-sans">
-                Post
-              </button>
-            </div>
-          ) : (
-            <div></div>
-          )}
-        </div>
-      ) : (
-        <div></div>
-      )}
-
-      <button
-        className="border shadow-sm px-[3%] py-[1%] rounded-lg my-[1%] mx-[10%] bg-white text-black font-sans"
-        ref={createRef}
-        onClick={() => {
-          setCreate(true);
-          hideButton();
-        }}
-      >
-        Create +{" "}
-      </button>
-    </>
+    <div>
+      <div className="flex justify-end">
+        <button
+          onClick={() => {
+            routeToGenerator();
+          }}
+          className="bg-white px-[1%] py-[0.6%] rounded-[80px] text-black text-semibold mx-[10%] my-4 hover:px-[2%] hover:py-[0.5%] hover:duration-75 hover:bg-blue-400 hover:text-white justify-end"
+        >
+          Create +{" "}
+        </button>
+      </div>
+      <div className="border shadow-sm px-[3%] py-[1%] rounded-lgdsax mx-[10%] bg-gray-100 text-black font-sans flex-col border-solid rounded-xl">
+        Feed goes here
+      </div>
+    </div>
   );
 }
 
