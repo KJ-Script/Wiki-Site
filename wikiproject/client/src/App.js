@@ -7,13 +7,14 @@ import Register from "./pages/Register";
 import SignInPage from "./pages/SignInPage";
 import PostGenerator from "./pages/PostGenerator";
 import Feed from "./pages/Feed";
+import MainBar from "./components/MainBar";
 
 function App() {
   return (
-    <div className="bg-slate-300 h-screen">
+    <div className="bg-slate-300 min-h-screen">
       <Router>
+        <MainBar />
         <NavBar />
-        <Footer />
         <Routes>
           <Route exact path="/" element={<LandingPage />}></Route>
           <Route exact path="/register" element={<Register />}></Route>
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/test" element={<SignInPage />}></Route>
           <Route exact path="/create" element={<PostGenerator />}></Route>
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

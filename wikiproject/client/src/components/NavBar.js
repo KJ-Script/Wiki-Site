@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom'
 
 function NavBar() {
   return (
-    <nav class=" mx-[35%] pt-[3%] pb-[1%] flex justify-between text-xl font-outfit border-b border-b-gray-600">
-    <Link to={"/home"} className="hover:bg-slate-600 hover:text-white py-[3%] px-[3%]">HOME</Link>
-    <Link to={"/about"} className="hover:bg-slate-600 hover:text-white py-[3%] px-[3%]">ABOUT</Link>
-    <Link to={"/signin"} className="hover:bg-slate-600 hover:text-white py-[3%] px-[3%]">SIGNIN</Link>
-    <Link to={"/register"} className="hover:bg-slate-600 hover:text-white py-[3%] px-[3%]">SIGNUP</Link>
+    <nav class="flex font-outfit bg-white rounded-[50px] w-[60%] h-[50px] mx-auto my-[2%]">
+      <div className="w-[60%] mx-auto flex justify-between my-auto h-full">
+    <Link to={"/home"} className="hover:bg-emerald-600 hover:text-white h-full px-4"><p className="my-3">HOME</p></Link>
+    <Link to={"/create"} className="hover:bg-emerald-600 hover:text-white h-full px-4"><p className="my-3">CREATE</p></Link>
+    <Link to={"/about"} className="hover:bg-emerald-600 hover:text-white h-full px-4"><p className="my-3">ABOUT</p></Link>
+    <Link to={"/rules"} className="hover:bg-emerald-600 hover:text-white h-full px-4"><p className="my-3">RULES</p></Link>
+    <Link to={"/contact"} className="hover:bg-emerald-600 hover:text-white h-full px-4"><p className="my-3">CONTACT US</p></Link>
+
+      </div>
   </nav>
   )
 }

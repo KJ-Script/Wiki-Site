@@ -1,15 +1,36 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function PostGenerator() {
   const [type, setType] = useState("");
+
+  const [placeName, setPlaceName] = useState("");
+  const [age, setAge] = useState("");
+  const [environment, setEnvironment] = useState("");
+  const [alias, setAlias] = useState("");
+  const [association, setAssociation] = useState("");
+
   const navigate = useNavigate();
 
   const routeToFeed = () => {
     setType("");
-    navigate('/home')
+    navigate("/home");
   };
 
+  const createSetting = () => {
+    axios
+      .post("http://localhost:8080/create/setting", {
+        placeName,
+        age,
+        environment,
+        alias,
+        association,
+      })
+      .then((response) => {
+        console.log("Setting", response);
+      });
+  };
   return (
     <div className="w-[100%]">
       <h1 className="mx-[40%] text-[30px] font-semibold">Create your {type}</h1>
@@ -53,7 +74,7 @@ function PostGenerator() {
           <button
             className="bg-blue-400 px-[1%] py-[0.6%] rounded-lg text-white text-semibold "
             onClick={() => {
-              routeToFeed()
+              routeToFeed();
             }}
           >
             Cancel
@@ -89,7 +110,7 @@ function PostGenerator() {
         {/* For Characer */}
         {type === "character" ? (
           <div className="">
-            <div className="flex my-3">
+            <div className="my-3">
               <input
                 type="text"
                 placeholder={"Name"}
@@ -98,8 +119,14 @@ function PostGenerator() {
               <input
                 type="text"
                 placeholder={"Age"}
-                className="mx-1 p-[1%] rounded-md"
+                className="m-1 p-[1%] rounded-md"
               />
+              <input
+                type="text"
+                placeholder={"Species/Race"}
+                className="m-1 p-[1%] rounded-md"
+              />{" "}
+              <br></br>
               <textarea
                 type="text"
                 placeholder={"Abilities"}
@@ -108,12 +135,12 @@ function PostGenerator() {
               <textarea
                 type="text"
                 placeholder={"Aliases"}
-                className="mx-1 p-[1%] rounded-md"
+                className="m-1 p-[1%] rounded-md"
               />
               <textarea
                 type="text"
                 placeholder={"Associations"}
-                className="mx-1 p-[1%] rounded-md"
+                className="m-1 p-[1%] rounded-md"
               />
             </div>
             <button className="border shadow-sm px-[2%] py-[0.6%] mx-[94%] rounded-lg  bg-blue-400 text-white font-sans">
@@ -132,29 +159,50 @@ function PostGenerator() {
                 type="text"
                 placeholder={"Name"}
                 className="mx-1 p-[1%] rounded-md"
+                onChange={(e) => {
+                  setPlaceName(e.target.value);
+                }}
               />
               <input
                 type="text"
                 placeholder={"Age"}
                 className="mx-1 p-[1%] rounded-md"
+                onChange={(e) => {
+                  setAge(e.target.value);
+                }}
               />
               <input
                 type="text"
                 placeholder={"Environment"}
                 className="mx-1 p-[1%] rounded-md"
+                onChange={(e) => {
+                  setEnvironment(e.target.value);
+                }}
               />
               <textarea
                 type="text"
                 placeholder={"Aliases"}
                 className="mx-1 p-[1%] rounded-md"
+                onChange={(e) => {
+                  setAlias(e.target.value);
+                }}
               />
               <textarea
                 type="text"
                 placeholder={"Associations"}
                 className="mx-1"
+                onChange={(e) => {
+                  setAssociation(e.target.value);
+                }}
               />
             </div>
-            <button className="border shadow-sm px-[2%] py-[0.6%] mx-[94%] rounded-lg  bg-blue-400 text-white font-sans">
+            <button
+              className="border shadow-sm px-[2%] py-[0.6%] mx-[94%] rounded-lg  bg-blue-400 text-white font-sans"
+              onClick={() => {
+                createSetting();
+                routeToFeed()
+              }}
+            >
               Post
             </button>
           </div>
