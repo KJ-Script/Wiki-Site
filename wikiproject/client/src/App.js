@@ -23,9 +23,9 @@ function App() {
           <Route exact path="/" element={<LandingPage />}></Route>
           <Route exact path="/register" element={<Register />}></Route>
           <Route exact path="/signin" element={<LogInpage setIsLogged={setIsLogged}/>}></Route>
-          <Route exact path="/home" element={<Feed />}></Route>
+          <Route exact path="/home" element={<Feed isLogged={isLogged}/>}></Route>
           <Route exact path="/test" element={<SignInPage />}></Route>
-          <Route exact path="/create" element={<PostGenerator />}></Route>
+          <Route exact path="/create" element={<PostGenerator isLogged={isLogged}/>}></Route>
         </Routes>
         <Footer />
       </Router>

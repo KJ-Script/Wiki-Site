@@ -17,7 +17,6 @@ function LogInpage({setIsLogged}) {
             console.log('response: ', response.data)
             const account = response.data
             if(account.status === "ok") {
-              alert("Logged In")
               setIsLogged(true)
               navigate('/home')
               
