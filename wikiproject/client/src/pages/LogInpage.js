@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-function LogInpage() {
+function LogInpage({setIsLogged}) {
     const [username, setUserName] = useState("")
     const [password, setPassword] = useState("")
 
@@ -18,6 +18,7 @@ function LogInpage() {
             const account = response.data
             if(account.status === "ok") {
               alert("Logged In")
+              setIsLogged(true)
               navigate('/home')
               
             } else {

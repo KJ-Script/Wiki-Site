@@ -8,17 +8,21 @@ import SignInPage from "./pages/SignInPage";
 import PostGenerator from "./pages/PostGenerator";
 import Feed from "./pages/Feed";
 import MainBar from "./components/MainBar";
+import { useState } from "react";
 
 function App() {
+
+  const [isLogged, setIsLogged] = useState(true);
+
   return (
     <div className="min-h-screen bg-slate-300">
       <Router>
-        <MainBar />
-        <NavBar />
+        <MainBar isLogged={isLogged} setIsLogged={setIsLogged}/>
+        <NavBar isLogged={isLogged}/>
         <Routes>
           <Route exact path="/" element={<LandingPage />}></Route>
           <Route exact path="/register" element={<Register />}></Route>
-          <Route exact path="/signin" element={<LogInpage />}></Route>
+          <Route exact path="/signin" element={<LogInpage setIsLogged={setIsLogged}/>}></Route>
           <Route exact path="/home" element={<Feed />}></Route>
           <Route exact path="/test" element={<SignInPage />}></Route>
           <Route exact path="/create" element={<PostGenerator />}></Route>
