@@ -11,7 +11,7 @@ import MainBar from "./components/MainBar";
 
 function App() {
   return (
-    <div className="bg-slate-300 min-h-screen">
+    <div className="min-h-screen bg-slate-300">
       <Router>
         <MainBar />
         <NavBar />

@@ -2,7 +2,7 @@ import React from "react";
 
 function MainBar() {
   return (
-    <div className="w-full h-[80px] bg-emerald-700 flex justify-end">
+    <div className="w-full h-[80px] bg-emerald-900 flex justify-end">
       <div className="bg-white h-[38px] my-4">
       <input
         className="h-[30px] px-3 mx-4"
@@ -27,10 +27,10 @@ function MainBar() {
         </svg>
       </button>
       </div>
-      <button className="w-[5%] h-[40px] bg-gray-200 mx-3 my-3 rounded-[50px] text-black hover:w-[7%] hover:py-[0.5%] hover:duration-100 hover:bg-blue-400 hover:text-white hover:shadow-black hover:shadow-2xl">
+      <button className="w-[5%] h-[40px] bg-gray-200 mx-3 my-3 rounded-[50px] text-black hover:w-[7%] hover:py-[0.5%] hover:duration-100 hover:bg-emerald-700 hover:text-white hover:shadow-black hover:shadow-2xl">
         LOGIN
       </button>
-      <button className="w-[5%] h-[40px] bg-gray-200 mr-3 my-3 rounded-[50px] text-black hover:w-[7%] hover:py-[0.5%] hover:duration-100 hover:bg-blue-400 hover:text-white hover:shadow-black hover:shadow-2xl">
+      <button className="w-[5%] h-[40px] bg-gray-200 mr-3 my-3 rounded-[50px] text-black hover:w-[7%] hover:py-[0.5%] hover:duration-100 hover:bg-emerald-700 hover:text-white hover:shadow-black hover:shadow-2xl">
         SIGNUP
       </button>
     </div>

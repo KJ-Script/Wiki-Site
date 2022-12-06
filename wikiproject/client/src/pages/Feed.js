@@ -56,11 +56,11 @@ function Feed() {
           <div>{settingList.map((setting, index) => {
             return (
               <div>
-                <div>{setting.name}</div>
+                <div>{setting.placeName}</div>
                 <div>{setting.age}</div>
                 <div>{setting.environment}</div>
                 <div>{setting.aliases}</div>
-                <div>{setting.association}</div>
+                <div>{setting.association}</div><br></br><br></br>
               </div>
             )
           })}</div> 
@@ -72,7 +72,7 @@ function Feed() {
           onClick={() => {
             routeToGenerator();
           }}
-          className="bg-white px-[1%] py-[0.6%] rounded-[80px] text-black text-semibold mx-[10%] my-2 hover:px-[2%] hover:duration-200 hover:bg-blue-400 hover:text-white justify-end"
+          className="bg-white px-[1%] py-[0.6%] rounded-[80px] text-black text-semibold mx-[10%] my-2 hover:px-[2%] hover:duration-200 hover:bg-emerald-700 hover:text-white justify-end"
         >
           Create +{" "}
         </button>
